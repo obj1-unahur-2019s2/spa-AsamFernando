@@ -1,0 +1,105 @@
+import personas.*
+import spa.*
+
+//tests de olivia
+
+test "estado interno de olivia concentracion=6" {
+	assert.equals(6, olivia.gradoDeConcentracion())
+}
+
+test "cada vez que discute, olivia baja su concentracion en 1 punto" {
+	olivia.discutir()
+	olivia.discutir()
+	assert.equals(4, olivia.gradoDeConcentracion())
+}
+
+test "olivia recibe un masaje y su concentracion aumenta en 3 puntos" {
+	spa.atender(olivia)
+	assert.equals(9, olivia.gradoDeConcentracion())
+}
+
+test "olivia va dos veces seguidas al spa y su concentracion aumenta a 15" {
+	spa.atender(olivia)
+	spa.atender(olivia)
+	assert.equals(15, olivia.gradoDeConcentracion())
+}
+
+//tests de bruno
+
+test "estado interno de bruno" {
+	assert.equals(true, bruno.esFeliz())
+	assert.equals(false, bruno.tieneSed())
+	assert.equals(55000, bruno.peso())
+}
+
+test "bruno ve el noticiero y deja de estar feliz" {
+	bruno.verElNoticiero()
+	assert.equals(false, bruno.esFeliz())
+}
+
+test "bruno ve el noticiero, se da unos masajes y vuelve a estar feliz" {
+	bruno.verElNoticiero()
+	spa.atender(bruno)
+	assert.equals(true, bruno.esFeliz())
+}
+
+test "bruno come fideos aumenta a 55250 gramos de peso" {
+	bruno.comerFideos()
+	assert.equals(55250, bruno.peso())
+}
+
+test "bruno come fideos, se da un baño de vapor y baja de peso a 54750 gramos" {
+	bruno.comerFideos()
+	spa.atender(bruno)
+	assert.equals(54750, bruno.peso())
+}
+
+test "bruno mira el noticiero, va dos veces seguidas al spa y vuelve a estar feliz" {
+	bruno.verElNoticiero()
+	spa.atender(bruno)
+	spa.atender(bruno)
+	assert.equals(true, bruno.esFeliz())
+}
+
+//tests de ramiro
+
+test "estado interno de ramiro" {
+	assert.equals(0, ramiro.nivelContractura())
+	assert.equals(false, ramiro.tienePielGrasosa())
+}
+
+test "ramiro come un bigMac y tiene la piel grasosa" {
+	ramiro.comerseUnBigMac()
+	assert.equals(true, ramiro.tienePielGrasosa())
+}
+
+test "ramiro se come un bigMac, se da un un baño de vapor y su piel ya no es grasosa" {
+	ramiro.comerseUnBigMac()
+	spa.atender(ramiro)
+	assert.equals(false, ramiro.tienePielGrasosa())
+}
+
+test "ramiro juega al paddle y aumenta su nivel de contractura a 3" {
+	ramiro.jugarAlPaddle()
+	assert.equals(3, ramiro.nivelContractura())
+}
+
+test "ramiro juega al paddle 3 veces, va dos veces seguidas al spa y su nivel de contractura baja a 3" {
+	ramiro.jugarAlPaddle()
+	ramiro.jugarAlPaddle()
+	ramiro.jugarAlPaddle()
+	spa.atender(ramiro)
+	spa.atender(ramiro)
+	assert.equals(3, ramiro.nivelContractura())
+}
+
+
+
+
+
+
+
+
+
+
+
